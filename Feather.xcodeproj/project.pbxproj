@@ -1,0 +1,973 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00BE2861C135D48651338B59 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E2AC6D560E0E922D796A4B4 /* manifest.json */; };
+		37E65FCAF9D2559F7685EE48 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BC3F736B70C4806408C1C /* SafariWebExtensionHandler.swift */; };
+		3EB9CFD06F7227881EBD3A96 /* FeatherSkipper.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 73AA825916C4E4336812300E /* FeatherSkipper.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		487D3DAB3253EDD00C0E0ABA /* FeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076EE5BB2A0D2A5EF38FF8D /* FeatherApp.swift */; };
+		5FDEF12906A39CE8D85AD4EE /* FeatherSkipper.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D5F929DE9E162CDAB9A7F4AB /* FeatherSkipper.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6AA96A5C36AD21EE8F12EE50 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8086F2C21A068B344A1882F2 /* blockerList.json */; };
+		8CAA77854A3DAFC498F86547 /* FeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076EE5BB2A0D2A5EF38FF8D /* FeatherApp.swift */; };
+		A3EA788966FCA5C595869CB0 /* youtube.js in Resources */ = {isa = PBXBuildFile; fileRef = FBCDC29E3D096A1F85078D26 /* youtube.js */; };
+		AD42A400783B3172EA792310 /* youtube.js in Resources */ = {isa = PBXBuildFile; fileRef = FBCDC29E3D096A1F85078D26 /* youtube.js */; };
+		B1AD05CD0232D20626FD8A05 /* FeatherBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 29CCF411B636E7E34518196C /* FeatherBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B88CD25023930F3162EB8945 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E2AC6D560E0E922D796A4B4 /* manifest.json */; };
+		B9C30A7968509A4100AEC006 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE5FD8EDC49F2D43762C5503 /* Assets.xcassets */; };
+		C3C6BD48AC7553B03F1EC35A /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4BC409514675021813AE /* ContentBlockerRequestHandler.swift */; };
+		C89E36CF48F3A222CC351961 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C4BC409514675021813AE /* ContentBlockerRequestHandler.swift */; };
+		D1411D8E3F05B36FE21D0C26 /* FeatherBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FF7358B0AF5C56066FA58634 /* FeatherBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D4F2111DDA9C54F452064B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE5FD8EDC49F2D43762C5503 /* Assets.xcassets */; };
+		E1C010A300384A20D072FAE2 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549BC3F736B70C4806408C1C /* SafariWebExtensionHandler.swift */; };
+		E3589A3D97D7655E6E10BC6B /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8086F2C21A068B344A1882F2 /* blockerList.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		189FF5CE8FF940ABBCD65235 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95B9694A1752C588124D5EE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 829C42FA2A85E0B64108914D;
+			remoteInfo = "Feather Skipper (macOS)";
+		};
+		7ACF9F86C3E2C6B4C3BABACF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95B9694A1752C588124D5EE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B907633D5825D9B85665937F;
+			remoteInfo = "Feather Skipper (iOS)";
+		};
+		94A6720A917BC44039D555F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95B9694A1752C588124D5EE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B84A13D400B83B2B46011A6;
+			remoteInfo = "Feather Blocker (macOS)";
+		};
+		C69310558979B6DC8415ADE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95B9694A1752C588124D5EE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09FDEA822DFA2D753A378173;
+			remoteInfo = "Feather Blocker (iOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		43A9F45968AEDD6549285267 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D1411D8E3F05B36FE21D0C26 /* FeatherBlocker.appex in Embed App Extensions */,
+				3EB9CFD06F7227881EBD3A96 /* FeatherSkipper.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C3B6F43CE7B13ADB49A67F6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B1AD05CD0232D20626FD8A05 /* FeatherBlocker.appex in Embed App Extensions */,
+				5FDEF12906A39CE8D85AD4EE /* FeatherSkipper.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		29CCF411B636E7E34518196C /* FeatherBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FeatherBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E2AC6D560E0E922D796A4B4 /* manifest.json */ = {isa = PBXFileReference; includeInIndex = 1; path = manifest.json; sourceTree = "<group>"; };
+		4076EE5BB2A0D2A5EF38FF8D /* FeatherApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeatherApp.swift; sourceTree = "<group>"; };
+		427A144B7221D2B29DA9CDBE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46D605E4726C9766C592E81F /* gen_icons.py */ = {isa = PBXFileReference; includeInIndex = 1; path = gen_icons.py; sourceTree = "<group>"; };
+		4CAC1EC28948B734BB9F44A5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		549BC3F736B70C4806408C1C /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		54E6E98966E99F428AEEEC79 /* domains.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = domains.txt; sourceTree = "<group>"; };
+		72D3CBEAAA1A6F2630D42F83 /* urls.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = urls.txt; sourceTree = "<group>"; };
+		73AA825916C4E4336812300E /* FeatherSkipper.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FeatherSkipper.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		777D39955D413B671DA43BF3 /* test_skipper.mjs */ = {isa = PBXFileReference; includeInIndex = 1; path = test_skipper.mjs; sourceTree = "<group>"; };
+		8086F2C21A068B344A1882F2 /* blockerList.json */ = {isa = PBXFileReference; includeInIndex = 1; path = blockerList.json; sourceTree = "<group>"; };
+		8810168091C080DAEEE55936 /* Feather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CC9EE9898C89D4234803E24 /* gen_project.rb */ = {isa = PBXFileReference; includeInIndex = 1; path = gen_project.rb; sourceTree = "<group>"; };
+		8E2534D23878C5F06574C633 /* Info-macOS.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
+		8EF9E853EE0CA311B4850155 /* FeatherBlocker.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = FeatherBlocker.entitlements; sourceTree = "<group>"; };
+		9669CC4BB3F144185F0EF9A3 /* Info-iOS.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
+		A23A4CF938A1D077D182C157 /* Feather.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = Feather.entitlements; sourceTree = "<group>"; };
+		BC07C0DC4BCDECE25B7A1C68 /* build_rules.py */ = {isa = PBXFileReference; includeInIndex = 1; path = build_rules.py; sourceTree = "<group>"; };
+		BF4C4BC409514675021813AE /* ContentBlockerRequestHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandler.swift; sourceTree = "<group>"; };
+		C4023E32D33CFC8D98B08BE2 /* test_rules.py */ = {isa = PBXFileReference; includeInIndex = 1; path = test_rules.py; sourceTree = "<group>"; };
+		C96D65D68D803741D0B108B6 /* Feather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5F929DE9E162CDAB9A7F4AB /* FeatherSkipper.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FeatherSkipper.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8FBFB31FD351A206378F22E /* FeatherSkipper.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = FeatherSkipper.entitlements; sourceTree = "<group>"; };
+		DE5FD8EDC49F2D43762C5503 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FBCDC29E3D096A1F85078D26 /* youtube.js */ = {isa = PBXFileReference; includeInIndex = 1; path = youtube.js; sourceTree = "<group>"; };
+		FE6283A80456E5A4E18970ED /* cosmetic.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = cosmetic.txt; sourceTree = "<group>"; };
+		FF7358B0AF5C56066FA58634 /* FeatherBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FeatherBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1EE97C60E9C7CCDD1EF8FA2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23AAECC5035E0E94EEB836D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60D311887FAD57101372A74A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		611B2E50B8B4DF5B64E7AA18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A56381AADF49E529EC35B01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC6520FCF89CD48685D1D50E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C16B88EDD956F6BB3DF99CE /* Skipper */ = {
+			isa = PBXGroup;
+			children = (
+				549BC3F736B70C4806408C1C /* SafariWebExtensionHandler.swift */,
+				4CAC1EC28948B734BB9F44A5 /* Info.plist */,
+				D8FBFB31FD351A206378F22E /* FeatherSkipper.entitlements */,
+				6D18115557C88E59F9803DB9 /* Resources */,
+			);
+			name = Skipper;
+			path = Skipper;
+			sourceTree = "<group>";
+		};
+		185B65E0CD62920DD9AEE97B = {
+			isa = PBXGroup;
+			children = (
+				D440EF20CD9456342B9C9A9D /* Products */,
+				561D31BFD95CA6EB2F3FCF57 /* Frameworks */,
+				7D9127B7AA0564271E79A406 /* App */,
+				8288C181CCCD5A413444332A /* ContentBlocker */,
+				0C16B88EDD956F6BB3DF99CE /* Skipper */,
+				3622A79297A074D148188017 /* Rules */,
+				820338C5C99C8018C66D4D9A /* Tools */,
+			);
+			sourceTree = "<group>";
+		};
+		1D004C398A419BC802D3FD3F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		3622A79297A074D148188017 /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				54E6E98966E99F428AEEEC79 /* domains.txt */,
+				72D3CBEAAA1A6F2630D42F83 /* urls.txt */,
+				FE6283A80456E5A4E18970ED /* cosmetic.txt */,
+			);
+			name = Rules;
+			path = rules;
+			sourceTree = "<group>";
+		};
+		561D31BFD95CA6EB2F3FCF57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F32EF16CC453CF04569CE119 /* OS X */,
+				1D004C398A419BC802D3FD3F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6D18115557C88E59F9803DB9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2E2AC6D560E0E922D796A4B4 /* manifest.json */,
+				FBCDC29E3D096A1F85078D26 /* youtube.js */,
+			);
+			name = Resources;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7D9127B7AA0564271E79A406 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4076EE5BB2A0D2A5EF38FF8D /* FeatherApp.swift */,
+				DE5FD8EDC49F2D43762C5503 /* Assets.xcassets */,
+				8E2534D23878C5F06574C633 /* Info-macOS.plist */,
+				9669CC4BB3F144185F0EF9A3 /* Info-iOS.plist */,
+				A23A4CF938A1D077D182C157 /* Feather.entitlements */,
+			);
+			name = App;
+			path = App;
+			sourceTree = "<group>";
+		};
+		820338C5C99C8018C66D4D9A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				BC07C0DC4BCDECE25B7A1C68 /* build_rules.py */,
+				C4023E32D33CFC8D98B08BE2 /* test_rules.py */,
+				777D39955D413B671DA43BF3 /* test_skipper.mjs */,
+				46D605E4726C9766C592E81F /* gen_icons.py */,
+				8CC9EE9898C89D4234803E24 /* gen_project.rb */,
+			);
+			name = Tools;
+			path = tools;
+			sourceTree = "<group>";
+		};
+		8288C181CCCD5A413444332A /* ContentBlocker */ = {
+			isa = PBXGroup;
+			children = (
+				BF4C4BC409514675021813AE /* ContentBlockerRequestHandler.swift */,
+				8086F2C21A068B344A1882F2 /* blockerList.json */,
+				427A144B7221D2B29DA9CDBE /* Info.plist */,
+				8EF9E853EE0CA311B4850155 /* FeatherBlocker.entitlements */,
+			);
+			name = ContentBlocker;
+			path = ContentBlocker;
+			sourceTree = "<group>";
+		};
+		D440EF20CD9456342B9C9A9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C96D65D68D803741D0B108B6 /* Feather.app */,
+				29CCF411B636E7E34518196C /* FeatherBlocker.appex */,
+				D5F929DE9E162CDAB9A7F4AB /* FeatherSkipper.appex */,
+				8810168091C080DAEEE55936 /* Feather.app */,
+				FF7358B0AF5C56066FA58634 /* FeatherBlocker.appex */,
+				73AA825916C4E4336812300E /* FeatherSkipper.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F32EF16CC453CF04569CE119 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		09FDEA822DFA2D753A378173 /* Feather Blocker (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EE4D4658F0A8D8BD9DB0015 /* Build configuration list for PBXNativeTarget "Feather Blocker (iOS)" */;
+			buildPhases = (
+				0942CCD94F9D897A380797F3 /* Sources */,
+				1EE97C60E9C7CCDD1EF8FA2F /* Frameworks */,
+				786C5B4DB3E245773E2EA50A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Feather Blocker (iOS)";
+			productName = FeatherBlocker;
+			productReference = FF7358B0AF5C56066FA58634 /* FeatherBlocker.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		109622E56A554473DC67ADC8 /* Feather (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA83454A307E4EE718749FCA /* Build configuration list for PBXNativeTarget "Feather (iOS)" */;
+			buildPhases = (
+				095259C24E30D346B92BEA51 /* Sources */,
+				611B2E50B8B4DF5B64E7AA18 /* Frameworks */,
+				5FC13820FA5164262F9DCD1A /* Resources */,
+				43A9F45968AEDD6549285267 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C422E304FBFD6F291DD70BC /* PBXTargetDependency */,
+				E2609A76152EE0FBBA1CFA1D /* PBXTargetDependency */,
+			);
+			name = "Feather (iOS)";
+			productName = Feather;
+			productReference = 8810168091C080DAEEE55936 /* Feather.app */;
+			productType = "com.apple.product-type.application";
+		};
+		42D3E33882521500CB6A79A1 /* Feather (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0AC950F60471351D968641AB /* Build configuration list for PBXNativeTarget "Feather (macOS)" */;
+			buildPhases = (
+				8B627209DB3F4F4D26E8E6DE /* Sources */,
+				60D311887FAD57101372A74A /* Frameworks */,
+				05948134FF0DB854EB47A69C /* Resources */,
+				6C3B6F43CE7B13ADB49A67F6 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20F2F2092E61AD2F6B255CA6 /* PBXTargetDependency */,
+				0BB56392531222F367E52028 /* PBXTargetDependency */,
+			);
+			name = "Feather (macOS)";
+			productName = Feather;
+			productReference = C96D65D68D803741D0B108B6 /* Feather.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6B84A13D400B83B2B46011A6 /* Feather Blocker (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E8735B0D35D2D3ADC85F5C3 /* Build configuration list for PBXNativeTarget "Feather Blocker (macOS)" */;
+			buildPhases = (
+				1925949C6D8DBB4D61A9ABA7 /* Sources */,
+				7A56381AADF49E529EC35B01 /* Frameworks */,
+				4DAA41256455F7F951D50094 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Feather Blocker (macOS)";
+			productName = FeatherBlocker;
+			productReference = 29CCF411B636E7E34518196C /* FeatherBlocker.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		829C42FA2A85E0B64108914D /* Feather Skipper (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F681B4D7321617E8EB24680B /* Build configuration list for PBXNativeTarget "Feather Skipper (macOS)" */;
+			buildPhases = (
+				3495D6DFFBE76E1C1F60132A /* Sources */,
+				23AAECC5035E0E94EEB836D8 /* Frameworks */,
+				A92111745560DBFD5295E64B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Feather Skipper (macOS)";
+			productName = FeatherSkipper;
+			productReference = D5F929DE9E162CDAB9A7F4AB /* FeatherSkipper.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		B907633D5825D9B85665937F /* Feather Skipper (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15457AF51356C436E98DCE61 /* Build configuration list for PBXNativeTarget "Feather Skipper (iOS)" */;
+			buildPhases = (
+				0F5A9A02424B4B27001F3808 /* Sources */,
+				EC6520FCF89CD48685D1D50E /* Frameworks */,
+				91306DC5266C33911BF6FCDF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Feather Skipper (iOS)";
+			productName = FeatherSkipper;
+			productReference = 73AA825916C4E4336812300E /* FeatherSkipper.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95B9694A1752C588124D5EE8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 677C60F42035BF8351A34CFE /* Build configuration list for PBXProject "Feather" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 185B65E0CD62920DD9AEE97B;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 100;
+			productRefGroup = D440EF20CD9456342B9C9A9D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42D3E33882521500CB6A79A1 /* Feather (macOS) */,
+				6B84A13D400B83B2B46011A6 /* Feather Blocker (macOS) */,
+				829C42FA2A85E0B64108914D /* Feather Skipper (macOS) */,
+				109622E56A554473DC67ADC8 /* Feather (iOS) */,
+				09FDEA822DFA2D753A378173 /* Feather Blocker (iOS) */,
+				B907633D5825D9B85665937F /* Feather Skipper (iOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05948134FF0DB854EB47A69C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4F2111DDA9C54F452064B54 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DAA41256455F7F951D50094 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AA96A5C36AD21EE8F12EE50 /* blockerList.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FC13820FA5164262F9DCD1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9C30A7968509A4100AEC006 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		786C5B4DB3E245773E2EA50A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3589A3D97D7655E6E10BC6B /* blockerList.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91306DC5266C33911BF6FCDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00BE2861C135D48651338B59 /* manifest.json in Resources */,
+				A3EA788966FCA5C595869CB0 /* youtube.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A92111745560DBFD5295E64B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B88CD25023930F3162EB8945 /* manifest.json in Resources */,
+				AD42A400783B3172EA792310 /* youtube.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0942CCD94F9D897A380797F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C89E36CF48F3A222CC351961 /* ContentBlockerRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		095259C24E30D346B92BEA51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				487D3DAB3253EDD00C0E0ABA /* FeatherApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0F5A9A02424B4B27001F3808 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37E65FCAF9D2559F7685EE48 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1925949C6D8DBB4D61A9ABA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C6BD48AC7553B03F1EC35A /* ContentBlockerRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3495D6DFFBE76E1C1F60132A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1C010A300384A20D072FAE2 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B627209DB3F4F4D26E8E6DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CAA77854A3DAFC498F86547 /* FeatherApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0BB56392531222F367E52028 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Feather Skipper (macOS)";
+			target = 829C42FA2A85E0B64108914D /* Feather Skipper (macOS) */;
+			targetProxy = 189FF5CE8FF940ABBCD65235 /* PBXContainerItemProxy */;
+		};
+		1C422E304FBFD6F291DD70BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Feather Blocker (iOS)";
+			target = 09FDEA822DFA2D753A378173 /* Feather Blocker (iOS) */;
+			targetProxy = C69310558979B6DC8415ADE2 /* PBXContainerItemProxy */;
+		};
+		20F2F2092E61AD2F6B255CA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Feather Blocker (macOS)";
+			target = 6B84A13D400B83B2B46011A6 /* Feather Blocker (macOS) */;
+			targetProxy = 94A6720A917BC44039D555F3 /* PBXContainerItemProxy */;
+		};
+		E2609A76152EE0FBBA1CFA1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Feather Skipper (iOS)";
+			target = B907633D5825D9B85665937F /* Feather Skipper (iOS) */;
+			targetProxy = 7ACF9F86C3E2C6B4C3BABACF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0454FB92AC6D962F632FA86B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Skipper/FeatherSkipper.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Skipper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokshshah.feather.skipper;
+				PRODUCT_NAME = FeatherSkipper;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		104A02EFE853558B142BEE71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				INFOPLIST_FILE = ContentBlocker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokshshah.feather.blocker;
+				PRODUCT_NAME = FeatherBlocker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2965768498A3F366BDACC60B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				INFOPLIST_FILE = Skipper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokshshah.feather.skipper;
+				PRODUCT_NAME = FeatherSkipper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		42151AB24A9160BC97471F81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				INFOPLIST_FILE = ContentBlocker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokshshah.feather.blocker;
+				PRODUCT_NAME = FeatherBlocker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		45210A7A64954FF3FDC129DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		49640579FEBE16F33F1EE7E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ContentBlocker/FeatherBlocker.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = ContentBlocker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokshshah.feather.blocker;
+				PRODUCT_NAME = FeatherBlocker;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B694E51BD0996D47C6ACA2FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Skipper/FeatherSkipper.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Skipper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokshshah.feather.skipper;
+				PRODUCT_NAME = FeatherSkipper;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B7024F768F8D59A4E4EF8A4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ContentBlocker/FeatherBlocker.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = ContentBlocker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokshshah.feather.blocker;
+				PRODUCT_NAME = FeatherBlocker;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C11933DA4A530131023D8735 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/Feather.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "App/Info-macOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokshshah.feather;
+				PRODUCT_NAME = Feather;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		C7F0E7D123D073F51E61621D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D59D7A7A633B54895749265D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				INFOPLIST_FILE = Skipper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokshshah.feather.skipper;
+				PRODUCT_NAME = FeatherSkipper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E1A314B6793688AC57CC4EF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "App/Info-iOS.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokshshah.feather;
+				PRODUCT_NAME = Feather;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5827A2BD908BAE89B176BE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "App/Info-iOS.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokshshah.feather;
+				PRODUCT_NAME = Feather;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FC4109E0589081EE08414864 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/Feather.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "App/Info-macOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokshshah.feather;
+				PRODUCT_NAME = Feather;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0AC950F60471351D968641AB /* Build configuration list for PBXNativeTarget "Feather (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C11933DA4A530131023D8735 /* Release */,
+				FC4109E0589081EE08414864 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15457AF51356C436E98DCE61 /* Build configuration list for PBXNativeTarget "Feather Skipper (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D59D7A7A633B54895749265D /* Release */,
+				2965768498A3F366BDACC60B /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E8735B0D35D2D3ADC85F5C3 /* Build configuration list for PBXNativeTarget "Feather Blocker (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7024F768F8D59A4E4EF8A4A /* Release */,
+				49640579FEBE16F33F1EE7E8 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		677C60F42035BF8351A34CFE /* Build configuration list for PBXProject "Feather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7F0E7D123D073F51E61621D /* Debug */,
+				45210A7A64954FF3FDC129DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EE4D4658F0A8D8BD9DB0015 /* Build configuration list for PBXNativeTarget "Feather Blocker (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				104A02EFE853558B142BEE71 /* Release */,
+				42151AB24A9160BC97471F81 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA83454A307E4EE718749FCA /* Build configuration list for PBXNativeTarget "Feather (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1A314B6793688AC57CC4EF2 /* Release */,
+				F5827A2BD908BAE89B176BE2 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F681B4D7321617E8EB24680B /* Build configuration list for PBXNativeTarget "Feather Skipper (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B694E51BD0996D47C6ACA2FB /* Release */,
+				0454FB92AC6D962F632FA86B /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95B9694A1752C588124D5EE8 /* Project object */;
+}
