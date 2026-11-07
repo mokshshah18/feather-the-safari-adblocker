@@ -1,0 +1,156 @@
+! Cosmetic rules: hide elements that survive network blocking.
+!
+!   domain,domain##selector     applies on those domains and their subdomains
+!   ##selector                  applies everywhere
+!   $name = a.com,b.com         defines an alias usable in place of a domain list
+!
+! Lines starting with ! are comments. Keep selectors plain CSS; :has() is fine
+! on Safari 15.4+ (every macOS this project targets).
+
+$google = google.com,google.co.uk,google.ca,google.com.au,google.co.in,google.de,google.fr,google.es,google.it,google.nl,google.com.br,google.co.jp,google.co.kr,google.com.mx,google.ru,google.pl,google.se,google.ch,google.at,google.be,google.ie,google.co.nz,google.com.sg,google.com.hk,google.com.tw,google.co.za,google.pt,google.dk,google.no,google.fi,google.cz,google.gr,google.hu,google.ro,google.com.tr,google.com.ar,google.cl,google.co.id,google.com.ph,google.co.th,google.com.vn,google.com.my,google.ae,google.com.sa,google.co.il,google.com.eg,google.com.pk,google.com.ng,google.co.ke
+$amazon = amazon.com,amazon.co.uk,amazon.de,amazon.ca,amazon.com.au,amazon.in,amazon.fr,amazon.it,amazon.es,amazon.co.jp,amazon.com.mx,amazon.com.br,amazon.nl,amazon.se,amazon.pl,amazon.sg,amazon.ae,amazon.sa
+$stackexchange = stackoverflow.com,stackexchange.com,superuser.com,serverfault.com,askubuntu.com,mathoverflow.net
+
+! ---- Google Search
+$google###tads
+$google###tadsb
+$google###bottomads
+$google###tvcap
+$google##.commercial-unit-desktop-top
+$google##.commercial-unit-desktop-rhs
+$google##.commercial-unit-mobile-top
+$google##[data-text-ad]
+$google##.ads-fr
+$google##.ads-ad
+
+! ---- YouTube (desktop, mobile web, YouTube Music)
+youtube.com###masthead-ad
+youtube.com###player-ads
+youtube.com##ytd-display-ad-renderer
+youtube.com##ytd-ad-slot-renderer
+youtube.com##ytd-in-feed-ad-layout-renderer
+youtube.com##ytd-promoted-sparkles-web-renderer
+youtube.com##ytd-promoted-video-renderer
+youtube.com##ytd-compact-promoted-video-renderer
+youtube.com##ytd-banner-promo-renderer
+youtube.com##ytd-video-masthead-ad-v3-renderer
+youtube.com##ytd-primetime-promo-renderer
+youtube.com##ytd-statement-banner-renderer
+youtube.com##ytd-companion-slot-renderer
+youtube.com##ytd-action-companion-ad-renderer
+youtube.com##ytd-mealbar-promo-renderer
+youtube.com##ytd-merch-shelf-renderer
+youtube.com##.ytp-ad-overlay-container
+youtube.com##.ytp-ad-image-overlay
+youtube.com##.ytp-ad-text-overlay
+youtube.com##ytd-rich-item-renderer:has(ytd-ad-slot-renderer)
+youtube.com##ytd-rich-section-renderer:has(ytd-statement-banner-renderer)
+youtube.com##tp-yt-paper-dialog:has(yt-mealbar-promo-renderer)
+youtube.com##ytm-promoted-video-renderer
+youtube.com##ytm-companion-ad-renderer
+youtube.com##ytm-promoted-sparkles-web-renderer
+youtube.com##ytmusic-mealbar-promo-renderer
+
+! ---- Reddit (current site and old.reddit.com)
+reddit.com##shreddit-ad-post
+reddit.com##shreddit-comments-page-ad
+reddit.com##shreddit-dynamic-ad-link
+reddit.com##shreddit-sidebar-ad
+reddit.com##.promotedlink
+reddit.com###ad_main
+reddit.com##.premium-banner-outer
+
+! ---- LinkedIn
+linkedin.com##.ad-banner-container
+linkedin.com##.ads-container
+
+! ---- X / Twitter promoted posts
+twitter.com,x.com##[data-testid="cellInnerDiv"]:has([data-testid="placementTracking"])
+twitter.com,x.com##[data-testid="placementTracking"]
+
+! ---- Amazon sponsored results
+$amazon##[data-component-type="sp-sponsored-result"]
+$amazon##.AdHolder
+$amazon###sp_detail
+$amazon###sp_detail2
+$amazon###sp_detail_thematic
+$amazon##.s-result-item:has(.puis-sponsored-label-text)
+$amazon##[cel_widget_id*="adplacements"]
+
+! ---- Other search engines
+bing.com##.b_ad
+duckduckgo.com##.results--ads
+duckduckgo.com##[data-layout="ad"]
+yahoo.com##.searchCenterTopAds
+yahoo.com##.searchCenterBottomAds
+yahoo.com##.searchRightTopAds
+yahoo.com##.gemini-ad
+
+! ---- Forums and Q&A
+$stackexchange##.everyonelovesstackoverflow
+$stackexchange###dfp-tlb
+$stackexchange###dfp-mlb
+$stackexchange###dfp-tsb
+fandom.com###top_leaderboard
+fandom.com###top_boxad
+fandom.com###bottom_leaderboard
+fandom.com###incontent_boxad_1
+fandom.com###floor_adhesion
+fandom.com##.top-ads-container
+fandom.com##.bottom-ads-container
+
+! Discourse ad plugin
+##.google-adsense
+##.google-dfp-ad
+##.amazon-product-links
+##.house-creative
+##.adbutler-ad
+! vBulletin ad positions
+##[id^="ad_global_"]
+##[id^="ad_showthread_"]
+##[id^="ad_thread_"]
+##[id^="ad_forumhome_"]
+##[id^="ad_forumdisplay_"]
+##[id^="ad_header_"]
+##[id^="ad_navbar_"]
+! XenForo (Siropu Ads Manager)
+##.samCodeUnit
+##.samBannerUnit
+
+! ---- Generic ad containers, everywhere
+##.adsbygoogle
+##[id^="div-gpt-ad"]
+##[id^="google_ads_iframe"]
+##[id^="google_ads_div"]
+##[data-ad-client]
+###carbonads
+##.carbonads
+##[id^="taboola-"]
+##.trc_related_container
+##.OUTBRAIN
+##.ob-widget
+##.ad-banner
+##.ad-container
+##.ad-wrapper
+##.ad-slot
+##.ad-unit
+##.ad-leaderboard
+##.ad-placement
+##.ad-box
+##.adbox
+##.adunit
+##.advertisement
+##.advertising
+##.adsense
+##.sponsored-ad
+##.banner-ad
+##.google-ad
+##.gpt-ad
+##.text-ad
+##.pub_300x250
+##.pub_728x90
+###ad-top
+###ad-bottom
+###ad-header
+###ad-footer
+###ad-sidebar

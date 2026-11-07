@@ -1,0 +1,48 @@
+# URL rules: one regex per line, optional options after whitespace.
+#
+#   <regex> [load-type=first-party|third-party] [resource-type=script,image,...]
+#           [if-domain=a.com,b.com] [unless-domain=...] [case-sensitive]
+#
+# Prefix a line with @@ to make it an exception (ignore-previous-rules).
+#
+# Regex rules: WebKit's content-blocker engine accepts only  . * + ? [ ] [^ ]
+# ( ) ^ $  and \. escapes. No alternation (a|b), no {n,m}, no \d \w \s.
+# Matching is case-insensitive unless case-sensitive is given.
+# Use ^[a-z]+:// to anchor at the scheme and ([^/:]+\.)? for "any subdomain".
+
+# ---- Google (first-party on google.*, so no load-type restriction)
+^[a-z]+://adservice\.google\.[a-z.]+[/:]
+^[a-z]+://([^/:]+\.)?google\.[a-z.]+/pagead/
+^[a-z]+://www\.google\.[a-z.]+/ads/
+^[a-z]+://www\.googletagmanager\.com/gtag/js
+
+# ---- YouTube and YouTube Music ad and tracking endpoints
+^[a-z]+://([^/:]+\.)?youtube\.com/pagead/
+^[a-z]+://([^/:]+\.)?youtube\.com/ptracking
+^[a-z]+://([^/:]+\.)?youtube\.com/api/stats/ads
+^[a-z]+://([^/:]+\.)?youtube\.com/api/stats/qoe
+^[a-z]+://([^/:]+\.)?youtube\.com/get_midroll_
+^[a-z]+://([^/:]+\.)?youtube\.com/youtubei/v1/log_event
+^[a-z]+://([^/:]+\.)?youtube\.com/csi_204
+
+# ---- Spotify web player
+^[a-z]+://spclient\.wg\.spotify\.com/ad-logic/
+^[a-z]+://spclient\.wg\.spotify\.com/ads/
+^[a-z]+://spclient\.wg\.spotify\.com/gabo-receiver-service/
+
+# ---- SoundCloud promoted tracks
+^[a-z]+://api-v2\.soundcloud\.com/promoted
+
+# ---- Social pixels that live on otherwise-needed hosts
+^[a-z]+://connect\.facebook\.net/[^/]+/fbevents\.js
+^[a-z]+://www\.facebook\.com/tr[/?]
+^[a-z]+://www\.linkedin\.com/li/track
+^[a-z]+://([^/:]+\.)?redditstatic\.com/ads/
+^[a-z]+://([^/:]+\.)?licdn\.com/.*/insight\.min\.js
+
+# ---- Generic ad paths, third-party only to limit breakage
+/pagead/ load-type=third-party
+/adserver/ load-type=third-party
+/adframe load-type=third-party
+/openx/ load-type=third-party
+/prebid[^/]*\.js([?#].*)?$ resource-type=script

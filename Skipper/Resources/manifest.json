@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Feather YouTube Skipper",
+  "version": "1.0.0",
+  "description": "Skips YouTube video ads by jumping to the end of each one and pressing Skip. Runs only on youtube.com. No background page, no storage, no network.",
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["youtube.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
