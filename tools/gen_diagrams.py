@@ -140,11 +140,11 @@ def banner(st):
     s.text(230, 172, "Feather", 64, FEATHER, "700")
     s.text(233, 214, "A lightweight ad blocker for Safari on every Apple device that has it", 22, INK2)
     x = 232
-    for label in (f"{st['total']} rules", f"{st['kb']} KB", "Zero page scripts outside youtube.com",
+    for label in (f"{st['total']} rules · {st['kb']} KB", "No page scripts outside youtube.com",
                   "macOS · iOS · iPadOS · visionOS"):
-        w = tw(label, 17) + 40
+        w = tw(label, 16) + 32
         s.box(x, 250, w, 40, rx=20, opacity=0.08)
-        s.text(x + w / 2, 275, label, 17, INK, anchor="middle")
+        s.text(x + w / 2, 275, label, 16, INK, anchor="middle")
         x += w + 12
     s.write("banner.svg")
 
