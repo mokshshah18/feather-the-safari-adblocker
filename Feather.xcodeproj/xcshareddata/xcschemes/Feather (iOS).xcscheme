@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "109622E56A554473DC67ADC8"
+               BlueprintIdentifier = "51C044F92779CC1D4985C933"
                BuildableName = "Feather.app"
                BlueprintName = "Feather (iOS)"
                ReferencedContainer = "container:Feather.xcodeproj">
@@ -30,7 +30,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "109622E56A554473DC67ADC8"
+            BlueprintIdentifier = "51C044F92779CC1D4985C933"
             BuildableName = "Feather.app"
             BlueprintName = "Feather (iOS)"
             ReferencedContainer = "container:Feather.xcodeproj">
@@ -53,7 +53,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "109622E56A554473DC67ADC8"
+            BlueprintIdentifier = "51C044F92779CC1D4985C933"
             BuildableName = "Feather.app"
             BlueprintName = "Feather (iOS)"
             ReferencedContainer = "container:Feather.xcodeproj">
@@ -70,7 +70,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "109622E56A554473DC67ADC8"
+            BlueprintIdentifier = "51C044F92779CC1D4985C933"
             BuildableName = "Feather.app"
             BlueprintName = "Feather (iOS)"
             ReferencedContainer = "container:Feather.xcodeproj">

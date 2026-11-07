@@ -89,7 +89,7 @@ rules_group = project.main_group.new_group('Rules', 'rules')
 %w[domains.txt urls.txt cosmetic.txt].each { |f| rules_group.new_file(f) }
 
 tools_group = project.main_group.new_group('Tools', 'tools')
-%w[build_rules.py test_rules.py test_skipper.mjs gen_icons.py gen_project.rb].each { |f| tools_group.new_file(f) }
+%w[build_rules.py test_rules.py test_skipper.mjs gen_icons.py gen_diagrams.py gen_project.rb].each { |f| tools_group.new_file(f) }
 
 # ---- Targets -------------------------------------------------------------------
 

@@ -1,8 +1,16 @@
-.PHONY: rules test project build clean
+.PHONY: rules test project diagrams icons build clean
 
 # Compile rules/*.txt into the JSON Safari loads.
 rules:
 	python3 tools/build_rules.py
+
+# Redraw the README figures in docs/ from the compiled rule list.
+diagrams: rules
+	python3 tools/gen_diagrams.py
+
+# Render the app icon set (needs: pip install pillow).
+icons:
+	python3 tools/gen_icons.py
 
 # Validate the compiled list and the YouTube skipper (needs node + playwright).
 test: rules

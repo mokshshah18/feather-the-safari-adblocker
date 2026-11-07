@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c3c2b7"/></marker></defs>
+<rect width="1200" height="520" rx="24" fill="#142434"/>
+<text x="40.0" y="52.0" font-size="26" fill="#f0efec" font-weight="700" text-anchor="start">How Feather works</text>
+<text x="40.0" y="80.0" font-size="16" fill="#c3c2b7" font-weight="normal" text-anchor="start">Blocking happens inside Safari. The only script Feather runs is on youtube.com.</text>
+<rect x="330" y="104" width="300" height="36" rx="18" fill="#ffffff" fill-opacity="0.1" stroke="#ffffff" stroke-opacity="0.14"/>
+<text x="480.0" y="127.0" font-size="14" fill="#f0efec" font-weight="normal" text-anchor="middle">236 rules · 28 KB · compiled once by Safari</text>
+<polyline points="480,140 480,158" fill="none" stroke="#c3c2b7" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="40.0" y="150.0" font-size="13" fill="#898781" font-weight="600" text-anchor="start" letter-spacing="1.5">EVERY SITE</text>
+<rect x="40" y="162" width="230" height="116" rx="12" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+<text x="60.0" y="196.0" font-size="18" fill="#f0efec" font-weight="600" text-anchor="start">Page requests</text>
+<text x="60.0" y="220.0" font-size="14" fill="#c3c2b7" font-weight="normal" text-anchor="start">scripts, images, frames,</text>
+<text x="60.0" y="240.0" font-size="14" fill="#c3c2b7" font-weight="normal" text-anchor="start">beacons, media</text>
+<polyline points="270,220 326,220" fill="none" stroke="#c3c2b7" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="330" y="162" width="300" height="116" rx="12" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+<text x="350.0" y="196.0" font-size="18" fill="#f0efec" font-weight="600" text-anchor="start">Safari's native matcher</text>
+<text x="350.0" y="220.0" font-size="14" fill="#c3c2b7" font-weight="normal" text-anchor="start">checks each URL against the</text>
+<text x="350.0" y="240.0" font-size="14" fill="#c3c2b7" font-weight="normal" text-anchor="start">compiled rules, in native code</text>
+<text x="350.0" y="264.0" font-size="13" fill="#898781" font-weight="normal" text-anchor="start">0 JavaScript from Feather</text>
+<polyline points="630,220 660,220 660,190 696,190" fill="none" stroke="#c3c2b7" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="700" y="166" width="460" height="48" rx="12" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+<circle cx="722" cy="190" r="9" fill="#e66767"/>
+<path d="M718.2 186.2 l7.6 7.6 M725.8 186.2 l-7.6 7.6" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+<text x="742.0" y="195.0" font-size="15" fill="#f0efec" font-weight="normal" text-anchor="start">Ad and tracker requests dropped</text>
+<polyline points="630,220 660,220 660,250 696,250" fill="none" stroke="#c3c2b7" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="700" y="226" width="460" height="48" rx="12" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+<circle cx="722" cy="250" r="9" fill="#199e70"/>
+<path d="M717.5 250 l3.2 3.2 l5.8 -6.4" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="742.0" y="255.0" font-size="15" fill="#f0efec" font-weight="normal" text-anchor="start">Everything else loads untouched</text>
+<polyline points="630,220 660,220 660,310 696,310" fill="none" stroke="#c3c2b7" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="700" y="286" width="460" height="48" rx="12" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+<circle cx="722" cy="310" r="9" fill="#199e70"/>
+<path d="M717.5 310 l3.2 3.2 l5.8 -6.4" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="742.0" y="315.0" font-size="15" fill="#f0efec" font-weight="normal" text-anchor="start">Leftover ad slots hidden with CSS (122 selectors)</text>
+<text x="40.0" y="372.0" font-size="13" fill="#898781" font-weight="600" text-anchor="start" letter-spacing="1.5">YOUTUBE.COM ONLY</text>
+<rect x="40" y="384" width="230" height="116" rx="12" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+<text x="60.0" y="418.0" font-size="18" fill="#f0efec" font-weight="600" text-anchor="start">YouTube player</text>
+<text x="60.0" y="442.0" font-size="14" fill="#c3c2b7" font-weight="normal" text-anchor="start">flags an ad on its own element</text>
+<text x="60.0" y="462.0" font-size="14" fill="#c3c2b7" font-weight="normal" text-anchor="start">with the class ad-showing</text>
+<polyline points="270,442 326,442" fill="none" stroke="#c3c2b7" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="330" y="384" width="300" height="116" rx="12" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+<text x="350.0" y="418.0" font-size="18" fill="#f0efec" font-weight="600" text-anchor="start">Feather Skipper · 2 KB</text>
+<text x="350.0" y="442.0" font-size="14" fill="#c3c2b7" font-weight="normal" text-anchor="start">mutes, seeks to the end,</text>
+<text x="350.0" y="462.0" font-size="14" fill="#c3c2b7" font-weight="normal" text-anchor="start">presses Skip</text>
+<text x="350.0" y="486.0" font-size="13" fill="#898781" font-weight="normal" text-anchor="start">idle cost: one check per second</text>
+<polyline points="630,442 696,442" fill="none" stroke="#c3c2b7" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="700" y="418" width="460" height="48" rx="12" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+<circle cx="722" cy="442" r="9" fill="#199e70"/>
+<path d="M717.5 442 l3.2 3.2 l5.8 -6.4" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="742.0" y="447.0" font-size="15" fill="#f0efec" font-weight="normal" text-anchor="start">Ad over in under a second, sound restored</text>
+</svg>
