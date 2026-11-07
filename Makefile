@@ -1,4 +1,4 @@
-.PHONY: rules test project diagrams icons build clean
+.PHONY: rules test project diagrams icons build package clean
 
 # Compile rules/*.txt into the JSON Safari loads.
 rules:
@@ -26,5 +26,11 @@ build: rules
 	xcodebuild -project Feather.xcodeproj -scheme Feather -configuration Release \
 		-derivedDataPath build build
 
+# Zip the built macOS app the way the release workflow does (macOS only).
+package: build
+	mkdir -p dist
+	ditto -c -k --keepParent build/Build/Products/Release/Feather.app dist/Feather-macOS.zip
+	@echo "wrote dist/Feather-macOS.zip"
+
 clean:
-	rm -rf build
+	rm -rf build dist
