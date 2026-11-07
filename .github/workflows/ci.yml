@@ -52,7 +52,14 @@ jobs:
             -destination "generic/platform=iOS" -derivedDataPath build-ios \
             CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
 
+      - name: Build visionOS app and extensions
+        run: |
+          xcodebuild -project Feather.xcodeproj -scheme "Feather (iOS)" -configuration Release \
+            -destination "generic/platform=visionOS" -derivedDataPath build-visionos \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
+
       - name: Show what was built
         run: |
-          ls -R build/Build/Products/Release/Feather.app/Contents/PlugIns
+          ls build/Build/Products/Release/Feather.app/Contents/PlugIns
           ls build-ios/Build/Products/Release-iphoneos/Feather.app/PlugIns
+          ls build-visionos/Build/Products/Release-xros/Feather.app/PlugIns

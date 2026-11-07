@@ -18,6 +18,7 @@ PROJECT_PATH = File.join(ROOT, 'Feather.xcodeproj')
 BUNDLE_PREFIX = 'com.mokshshah.feather'
 MACOS_DEPLOYMENT_TARGET = '13.0'
 IOS_DEPLOYMENT_TARGET = '16.4' # first iOS Safari with Manifest V3 web extensions
+VISIONOS_DEPLOYMENT_TARGET = '1.0'
 
 PLATFORMS = {
   macos: {
@@ -32,12 +33,16 @@ PLATFORMS = {
     app_rpath: ['$(inherited)', '@executable_path/../Frameworks'],
     ext_rpath: ['$(inherited)', '@executable_path/../Frameworks', '@executable_path/../../../../Frameworks'],
   },
+  # One set of targets covers iPhone, iPad and Apple Vision Pro: visionOS runs
+  # the same UIKit/SwiftUI code and the same Safari extension points.
   ios: {
     sym: :ios, label: 'iOS', deploy: IOS_DEPLOYMENT_TARGET,
     settings: {
       'SDKROOT' => 'iphoneos',
       'IPHONEOS_DEPLOYMENT_TARGET' => IOS_DEPLOYMENT_TARGET,
-      'TARGETED_DEVICE_FAMILY' => '1,2',
+      'XROS_DEPLOYMENT_TARGET' => VISIONOS_DEPLOYMENT_TARGET,
+      'SUPPORTED_PLATFORMS' => 'iphoneos iphonesimulator xros xrsimulator',
+      'TARGETED_DEVICE_FAMILY' => '1,2,7',
       'SUPPORTS_MACCATALYST' => 'NO',
     },
     app_rpath: ['$(inherited)', '@executable_path/Frameworks'],

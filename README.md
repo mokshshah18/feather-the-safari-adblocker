@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="docs/banner.svg" alt="Feather: a lightweight ad blocker for Safari on macOS and iOS" width="100%">
+  <img src="docs/banner.svg" alt="Feather: a lightweight ad blocker for Safari on macOS, iOS, iPadOS and visionOS" width="100%">
 </p>
 
 <p align="center">
   <a href="https://github.com/mokshshah18/feather-the-safari-adblocker/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/mokshshah18/feather-the-safari-adblocker?label=download&color=3987e5"></a>
   <a href="https://github.com/mokshshah18/feather-the-safari-adblocker/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/mokshshah18/feather-the-safari-adblocker/actions/workflows/ci.yml/badge.svg"></a>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-3987e5">
-  <img alt="Safari on macOS 13+ and iOS 16.4+" src="https://img.shields.io/badge/Safari-macOS%2013%2B%20%C2%B7%20iOS%2016.4%2B-142434">
+  <img alt="Safari on macOS 13+, iOS and iPadOS 16.4+, visionOS 1+" src="https://img.shields.io/badge/Safari-macOS%20%C2%B7%20iOS%20%C2%B7%20iPadOS%20%C2%B7%20visionOS-142434">
   <img alt="236 rules, 28 KB" src="https://img.shields.io/badge/rules-236%20in%2028%20KB-199e70">
 </p>
 
@@ -64,6 +64,19 @@ Extensions** (Settings › Safari › Extensions on iOS 17 and earlier), turn on
 **Feather Blocker** and **Feather YouTube Skipper**, and allow the skipper on
 youtube.com.
 
+### visionOS
+
+Safari on Apple Vision Pro runs content blockers and manages them the same
+way as iPad. The iOS targets build natively for visionOS (pick an Apple Vision
+Pro destination in Xcode), and CI compiles that build on every change. There is
+no sideloading on Vision Pro, so the ways in are TestFlight, the App Store, or
+Xcode with your own team.
+
+### Platforms without Safari
+
+tvOS and watchOS have no Safari and no extension points, so there is nothing
+to build for them. iPadOS is covered by the iOS app.
+
 ## How it works
 
 <p align="center">
@@ -79,9 +92,10 @@ servers as the video and cannot be told apart by URL.
 
 ## Build from source
 
-Requirements: Xcode 15 or later. macOS 13+ to run the Mac app, iOS 16.4+ for
-the iPhone/iPad app (any device that runs the current Safari qualifies).
-`make package` on a Mac produces the same zip the release workflow does.
+Requirements: Xcode 15 or later. macOS 13+ to run the Mac app, iOS or iPadOS
+16.4+ for the iPhone and iPad app, visionOS 1+ for Vision Pro (any device that
+runs the current Safari qualifies). `make package` on a Mac produces the same
+zip the release workflow does.
 
 ### macOS
 
@@ -93,12 +107,13 @@ the iPhone/iPad app (any device that runs the current Safari qualifies).
    Unsigned Extensions** (enable the Develop menu under Settings › Advanced).
    Pick a team under Signing & Capabilities instead if you want to skip this.
 
-### iOS and iPadOS
+### iOS, iPadOS and visionOS
 
 1. Open `Feather.xcodeproj`, select the three **(iOS)** targets one at a time
    and choose your Team under Signing & Capabilities. Apple requires a team for
-   any iOS build, free accounts included.
-2. Pick the **Feather (iOS)** scheme, choose your device, press Run.
+   any iOS or visionOS build, free accounts included.
+2. Pick the **Feather (iOS)** scheme, choose your iPhone, iPad or Vision Pro as
+   the destination, press Run.
 3. On the device, go to **Settings › Apps › Safari › Extensions** (Settings ›
    Safari › Extensions on iOS 17 and earlier) and turn on **Feather Blocker**
    and **Feather YouTube Skipper**. Allow the skipper for youtube.com.
@@ -201,7 +216,7 @@ match what ships.
 ## Releasing
 
 CI (`.github/workflows/ci.yml`) runs the rule and skipper tests on Linux and an
-unsigned Xcode build of both platforms on every push and pull request. To cut a
+unsigned Xcode build for macOS, iOS and visionOS on every push and pull request. To cut a
 release, tag the commit and push the tag:
 
 ```bash

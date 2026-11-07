@@ -4,13 +4,13 @@
 <g transform="translate(1010 170) rotate(-32)" opacity="0.07"><ellipse rx="70.3" ry="180.5" fill="#f4f1e8"/><rect x="-7.6" y="-166.1" width="15.2" height="342.9" rx="7.6" fill="#142434"/><rect x="-7.6" y="153.4" width="15.2" height="81.2" rx="7.6" fill="#f4f1e8"/><polygon points="-73.8,-27.1 -24.6,6.4 -73.8,19.7" fill="#142434"/><polygon points="-73.8,-81.2 -24.6,-47.8 -73.8,-34.4" fill="#142434"/></g>
 <g transform="translate(120 170) rotate(-32)" opacity="1.0"><ellipse rx="37.0" ry="95.0" fill="#f4f1e8"/><rect x="-4.0" y="-87.4" width="8.0" height="180.5" rx="4.0" fill="#142434"/><rect x="-4.0" y="80.8" width="8.0" height="42.8" rx="4.0" fill="#f4f1e8"/><polygon points="-38.9,-14.2 -12.9,3.3 -38.9,10.4" fill="#142434"/><polygon points="-38.9,-42.8 -12.9,-25.2 -38.9,-18.1" fill="#142434"/></g>
 <text x="230.0" y="172.0" font-size="64" fill="#f4f1e8" font-weight="700" text-anchor="start">Feather</text>
-<text x="233.0" y="214.0" font-size="22" fill="#c3c2b7" font-weight="normal" text-anchor="start">A lightweight ad blocker for Safari on macOS and iOS</text>
+<text x="233.0" y="214.0" font-size="22" fill="#c3c2b7" font-weight="normal" text-anchor="start">A lightweight ad blocker for Safari on every Apple device that has it</text>
 <rect x="232" y="250" width="128.74" height="40" rx="20" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.14"/>
 <text x="296.4" y="275.0" font-size="17" fill="#f0efec" font-weight="normal" text-anchor="middle">236 rules</text>
 <rect x="372.74" y="250" width="89.3" height="40" rx="20" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.14"/>
 <text x="417.4" y="275.0" font-size="17" fill="#f0efec" font-weight="normal" text-anchor="middle">28 KB</text>
 <rect x="474.04" y="250" width="404.82" height="40" rx="20" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.14"/>
 <text x="676.5" y="275.0" font-size="17" fill="#f0efec" font-weight="normal" text-anchor="middle">Zero page scripts outside youtube.com</text>
-<rect x="890.86" y="250" width="247.05999999999997" height="40" rx="20" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.14"/>
-<text x="1014.4" y="275.0" font-size="17" fill="#f0efec" font-weight="normal" text-anchor="middle">macOS 13+ · iOS 16.4+</text>
+<rect x="890.86" y="250" width="345.65999999999997" height="40" rx="20" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.14"/>
+<text x="1063.7" y="275.0" font-size="17" fill="#f0efec" font-weight="normal" text-anchor="middle">macOS · iOS · iPadOS · visionOS</text>
 </svg>
