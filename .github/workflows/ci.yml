@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  rules:
+    name: Rules and skipper tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Compile and validate the rule list
+        run: |
+          python3 tools/build_rules.py
+          python3 tools/test_rules.py
+          # The committed JSON must match the sources.
+          git diff --exit-code -- ContentBlocker/blockerList.json
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Skipper smoke test
+        run: node tools/test_skipper.mjs
+
+  build:
+    name: Xcode build (unsigned)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build macOS app and extensions
+        run: |
+          xcodebuild -project Feather.xcodeproj -scheme "Feather (macOS)" -configuration Release \
+            -destination "generic/platform=macOS" -derivedDataPath build \
+            CODE_SIGN_IDENTITY=- build
+
+      - name: Build iOS app and extensions
+        run: |
+          xcodebuild -project Feather.xcodeproj -scheme "Feather (iOS)" -configuration Release \
+            -destination "generic/platform=iOS" -derivedDataPath build-ios \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
+
+      - name: Build visionOS app and extensions
+        run: |
+          xcodebuild -project Feather.xcodeproj -scheme "Feather (iOS)" -configuration Release \
+            -destination "generic/platform=visionOS" -derivedDataPath build-visionos \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
+
+      - name: Show what was built
+        run: |
+          ls build/Build/Products/Release/Feather.app/Contents/PlugIns
+          ls build-ios/Build/Products/Release-iphoneos/Feather.app/PlugIns
+          ls build-visionos/Build/Products/Release-xros/Feather.app/PlugIns

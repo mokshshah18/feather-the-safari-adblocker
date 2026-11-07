@@ -1,0 +1,150 @@
+# Builds Feather on a macOS runner and attaches the downloads to a GitHub
+# Release whenever a v* tag is pushed. Run it by hand (workflow_dispatch) to
+# get the same files as a workflow artifact without publishing a release.
+#
+# Signing is optional. With no secrets the macOS app is ad-hoc signed and the
+# release notes say so. Add these repository secrets to ship a signed,
+# notarized build that opens without Gatekeeper warnings:
+#
+#   MACOS_CERTIFICATE_P12        base64 of a "Developer ID Application" .p12
+#   MACOS_CERTIFICATE_PASSWORD   the .p12 password
+#   APPLE_TEAM_ID                10-character team ID
+#   APPLE_ID                     Apple ID email, for notarization
+#   APPLE_APP_PASSWORD           an app-specific password for that Apple ID
+#
+# The iOS build is always unsigned: Apple allows iPhone installs only through
+# the App Store, TestFlight, or a sideloading tool that re-signs the .ipa.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    name: Build and package
+    runs-on: macos-latest
+    env:
+      HAS_CERT: ${{ secrets.MACOS_CERTIFICATE_P12 != '' }}
+      HAS_NOTARY: ${{ secrets.APPLE_ID != '' && secrets.APPLE_APP_PASSWORD != '' && secrets.APPLE_TEAM_ID != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Work out the version
+        run: |
+          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+          else
+            VERSION="0.0.0"
+          fi
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "LABEL=$VERSION$([[ "$GITHUB_REF_TYPE" == tag ]] || echo "-$(git rev-parse --short HEAD)")" >> "$GITHUB_ENV"
+          echo "Building Feather $VERSION"
+
+      - name: Import Developer ID certificate
+        if: env.HAS_CERT == 'true'
+        env:
+          P12_BASE64: ${{ secrets.MACOS_CERTIFICATE_P12 }}
+          P12_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+        run: |
+          KEYCHAIN="$RUNNER_TEMP/signing.keychain-db"
+          KEYCHAIN_PASSWORD="$(uuidgen)"
+          echo "$P12_BASE64" | base64 --decode > "$RUNNER_TEMP/cert.p12"
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security import "$RUNNER_TEMP/cert.p12" -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN"
+          security set-key-partition-list -S apple-tool:,apple: -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security list-keychain -d user -s "$KEYCHAIN"
+          rm "$RUNNER_TEMP/cert.p12"
+
+      - name: Build macOS app
+        env:
+          TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          if [[ "$HAS_CERT" == "true" ]]; then
+            SIGNING=(CODE_SIGN_STYLE=Manual "CODE_SIGN_IDENTITY=Developer ID Application" "DEVELOPMENT_TEAM=$TEAM_ID" "OTHER_CODE_SIGN_FLAGS=--timestamp")
+          else
+            SIGNING=(CODE_SIGN_IDENTITY=-)
+          fi
+          xcodebuild -project Feather.xcodeproj -scheme "Feather (macOS)" -configuration Release \
+            -destination "generic/platform=macOS" -derivedDataPath build \
+            MARKETING_VERSION="$VERSION" CURRENT_PROJECT_VERSION="$GITHUB_RUN_NUMBER" \
+            "${SIGNING[@]}" build
+
+      - name: Notarize and staple
+        if: env.HAS_CERT == 'true' && env.HAS_NOTARY == 'true'
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          APP="build/Build/Products/Release/Feather.app"
+          ditto -c -k --keepParent "$APP" "$RUNNER_TEMP/notarize.zip"
+          xcrun notarytool submit "$RUNNER_TEMP/notarize.zip" \
+            --apple-id "$APPLE_ID" --password "$APPLE_APP_PASSWORD" --team-id "$APPLE_TEAM_ID" --wait
+          xcrun stapler staple "$APP"
+
+      - name: Package macOS app
+        run: |
+          APP="build/Build/Products/Release/Feather.app"
+          codesign --verify --deep --strict --verbose=2 "$APP"
+          mkdir -p dist
+          ditto -c -k --keepParent "$APP" "dist/Feather-macOS-$LABEL.zip"
+
+      - name: Build iOS app (unsigned, for sideloading)
+        run: |
+          xcodebuild -project Feather.xcodeproj -scheme "Feather (iOS)" -configuration Release \
+            -destination "generic/platform=iOS" -derivedDataPath build-ios \
+            MARKETING_VERSION="$VERSION" CURRENT_PROJECT_VERSION="$GITHUB_RUN_NUMBER" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
+          rm -rf Payload && mkdir Payload
+          cp -R build-ios/Build/Products/Release-iphoneos/Feather.app Payload/
+          ditto -c -k --keepParent Payload "dist/Feather-iOS-$LABEL-unsigned.ipa"
+
+      - name: Add the rule list on its own
+        run: cp ContentBlocker/blockerList.json "dist/blockerList-$LABEL.json"
+
+      - name: Write release notes
+        run: |
+          if [[ "$HAS_CERT" == "true" && "$HAS_NOTARY" == "true" ]]; then
+            MAC_NOTE="Signed with Developer ID and notarized by Apple. Unzip, move Feather to Applications, open it, then turn both extensions on in Safari › Settings › Extensions."
+          else
+            MAC_NOTE="This build is not notarized, so macOS will refuse to open it at first. Unzip, move Feather to Applications, open it once, then go to System Settings › Privacy & Security and click **Open Anyway**. In Safari, enable the Develop menu (Settings › Advanced), choose **Develop › Allow Unsigned Extensions**, then turn both extensions on in Safari › Settings › Extensions. The Develop toggle resets whenever Safari quits."
+          fi
+          cat > "$RUNNER_TEMP/notes.md" <<EOF
+          ## Downloads
+
+          | File | For |
+          |---|---|
+          | \`Feather-macOS-$LABEL.zip\` | macOS 13 or later |
+          | \`Feather-iOS-$LABEL-unsigned.ipa\` | iOS 16.4 or later, **sideloading only** (AltStore, Sideloadly) |
+          | \`blockerList-$LABEL.json\` | the compiled rule list, for anyone who wants just the rules |
+
+          ### macOS
+
+          $MAC_NOTE
+
+          ### iOS and iPadOS
+
+          Apple does not allow installing a downloaded app on an iPhone. The \`.ipa\` here is unsigned; install it with [AltStore](https://altstore.io) or [Sideloadly](https://sideloadly.io), which re-sign it with your own Apple ID (keep the two app extensions when asked). Then turn **Feather Blocker** and **Feather YouTube Skipper** on under Settings › Apps › Safari › Extensions. The other route is building from source in Xcode with your own team, which the README covers.
+          EOF
+          cat "$RUNNER_TEMP/notes.md"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Feather-${{ env.LABEL }}
+          path: dist/*
+          if-no-files-found: error
+
+      - name: Publish the GitHub Release
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/* \
+            --title "Feather $VERSION" --notes-file "$RUNNER_TEMP/notes.md" --verify-tag
