@@ -227,13 +227,17 @@ git tag v1.0.1
 git push origin v1.0.1
 ```
 
+Or skip the tag: open **Actions › Release › Run workflow**, type the version
+(for example `1.0.1`), and the workflow tags the current `main` commit and
+publishes. Leave the version empty for a build-only run that uploads the same
+files as a workflow artifact without publishing.
+
 The release workflow builds the macOS app, the unsigned iOS `.ipa`, and the
 standalone rule list on a macOS runner and attaches them to a GitHub Release
 named after the tag. With `MACOS_CERTIFICATE_P12`, `MACOS_CERTIFICATE_PASSWORD`,
 `APPLE_TEAM_ID`, `APPLE_ID` and `APPLE_APP_PASSWORD` set as repository secrets,
 the macOS build is signed with Developer ID and notarized; without them it is
-ad-hoc signed and the release notes say so. Run the workflow by hand from the
-Actions tab to get the same files as a build artifact without publishing.
+ad-hoc signed and the release notes say so.
 
 ## License
 

@@ -1,6 +1,7 @@
 # Builds Feather on a macOS runner and attaches the downloads to a GitHub
-# Release whenever a v* tag is pushed. Run it by hand (workflow_dispatch) to
-# get the same files as a workflow artifact without publishing a release.
+# Release whenever a v* tag is pushed. Run it by hand (workflow_dispatch) with
+# a version to tag the current commit and publish, or with no version to get
+# the same files as a workflow artifact without publishing anything.
 #
 # Signing is optional. With no secrets the macOS app is ad-hoc signed and the
 # release notes say so. Add these repository secrets to ship a signed,
@@ -20,6 +21,11 @@ on:
   push:
     tags: ["v*"]
   workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to publish, e.g. 1.0.0: tags this commit v<version> and creates the release. Leave empty for a build-only run."
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -35,15 +41,25 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Work out the version
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
         run: |
           if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
-            VERSION="${GITHUB_REF_NAME#v}"
+            VERSION="${GITHUB_REF_NAME#v}"; TAG="$GITHUB_REF_NAME"; PUBLISH=true
+          elif [[ -n "$INPUT_VERSION" ]]; then
+            VERSION="${INPUT_VERSION#v}"; TAG="v$VERSION"; PUBLISH=true
           else
-            VERSION="0.0.0"
+            VERSION="0.0.0"; TAG=""; PUBLISH=false
           fi
-          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
-          echo "LABEL=$VERSION$([[ "$GITHUB_REF_TYPE" == tag ]] || echo "-$(git rev-parse --short HEAD)")" >> "$GITHUB_ENV"
-          echo "Building Feather $VERSION"
+          LABEL="$VERSION"
+          [[ "$PUBLISH" == true ]] || LABEL="$VERSION-$(git rev-parse --short HEAD)"
+          {
+            echo "VERSION=$VERSION"
+            echo "TAG=$TAG"
+            echo "PUBLISH=$PUBLISH"
+            echo "LABEL=$LABEL"
+          } >> "$GITHUB_ENV"
+          echo "Building Feather $LABEL (publish: $PUBLISH)"
 
       - name: Import Developer ID certificate
         if: env.HAS_CERT == 'true'
@@ -142,9 +158,15 @@ jobs:
           if-no-files-found: error
 
       - name: Publish the GitHub Release
-        if: github.ref_type == 'tag'
+        if: env.PUBLISH == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" dist/* \
-            --title "Feather $VERSION" --notes-file "$RUNNER_TEMP/notes.md" --verify-tag
+          # A manual run tags the current commit; a tag push already has the tag.
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
+            TARGET=()
+          else
+            TARGET=(--target "$GITHUB_SHA")
+          fi
+          gh release create "$TAG" dist/* "${TARGET[@]}" \
+            --title "Feather $VERSION" --notes-file "$RUNNER_TEMP/notes.md"
